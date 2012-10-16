@@ -42,7 +42,10 @@ try:
     import platform
     if platform.system() != 'windows':
         import signal
-        signal.signal(signal.SIGPIPE, signal.SIG_IGN)
+        try:
+            signal.signal(signal.SIGPIPE, signal.SIG_IGN)
+        except:
+            pass
 except ImportError:
     pass
 
